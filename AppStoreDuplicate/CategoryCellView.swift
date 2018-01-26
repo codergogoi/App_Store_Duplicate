@@ -64,13 +64,14 @@ class CategoryCellView: UICollectionViewCell {
         self.appCollectionView.dataSource = self
         self.appCollectionView.register(AppCellView.self, forCellWithReuseIdentifier: cellIdentifier)
         self.appCollectionView.alwaysBounceHorizontal = true
-         self.addSubview(appCollectionView)
+        self.appCollectionView.showsHorizontalScrollIndicator = false
+        self.addSubview(appCollectionView)
 
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-20-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": categoryTitle]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-14-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": categoryTitle]))
     
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v1]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v1": appCollectionView]))
         
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(20)][v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": categoryTitle,"v1": appCollectionView]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(20)]-14-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": categoryTitle,"v1": appCollectionView]))
  
     }
  
@@ -106,11 +107,32 @@ extension CategoryCellView : UICollectionViewDelegateFlowLayout{
 
 class AppCellView: UICollectionViewCell{
     
+    let appIconImg : UIImageView = {
+       
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFit
+        img.image = #imageLiteral(resourceName: "clash")
+        img.layer.cornerRadius = 10
+
+        return img
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
+        setupView()
     }
+    
+    
+    func setupView(){
+        
+        self.addSubview(appIconImg)
+        self.appIconImg.translatesAutoresizingMaskIntoConstraints = false
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appIconImg]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[v0(120)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appIconImg]))
+        
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
