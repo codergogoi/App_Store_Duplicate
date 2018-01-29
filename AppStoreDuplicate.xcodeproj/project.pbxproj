@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B807B5432019C44F009F89F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807B5422019C44F009F89F4 /* AppDelegate.swift */; };
 		B807B5452019C44F009F89F4 /* AppCategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807B5442019C44F009F89F4 /* AppCategoryCollectionView.swift */; };
-		B807B5482019C44F009F89F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B807B5462019C44F009F89F4 /* Main.storyboard */; };
 		B807B54B2019C44F009F89F4 /* AppStoreDuplicate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B807B5492019C44F009F89F4 /* AppStoreDuplicate.xcdatamodeld */; };
 		B807B54D2019C44F009F89F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B807B54C2019C44F009F89F4 /* Assets.xcassets */; };
 		B807B5502019C44F009F89F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B807B54E2019C44F009F89F4 /* LaunchScreen.storyboard */; };
@@ -17,6 +16,13 @@
 		B807B5662019C44F009F89F4 /* AppStoreDuplicateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807B5652019C44F009F89F4 /* AppStoreDuplicateUITests.swift */; };
 		B807B5752019C977009F89F4 /* CategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807B5742019C977009F89F4 /* CategoryCellView.swift */; };
 		B807B5772019E0E2009F89F4 /* AppCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B807B5762019E0E2009F89F4 /* AppCategoryViewModel.swift */; };
+		B85582F2201F324E00FE0C51 /* HeaderBannerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85582F1201F324E00FE0C51 /* HeaderBannerCellView.swift */; };
+		B85582F5201F3FDD00FE0C51 /* FooterBannerCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85582F4201F3FDD00FE0C51 /* FooterBannerCellView.swift */; };
+		B85582F8201F4B7500FE0C51 /* AppDetailsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85582F7201F4B7500FE0C51 /* AppDetailsCollectionView.swift */; };
+		B85582FE201F4E2900FE0C51 /* UpdateCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85582FD201F4E2900FE0C51 /* UpdateCollectionView.swift */; };
+		B8558300201F4E5600FE0C51 /* SearchCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85582FF201F4E5600FE0C51 /* SearchCollectionView.swift */; };
+		B8558302201F4E6C00FE0C51 /* ExploreCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8558301201F4E6C00FE0C51 /* ExploreCollectionView.swift */; };
+		B8558304201F4E8500FE0C51 /* TopChartsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8558303201F4E8500FE0C51 /* TopChartsCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +46,6 @@
 		B807B53F2019C44F009F89F4 /* AppStoreDuplicate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreDuplicate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B807B5422019C44F009F89F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B807B5442019C44F009F89F4 /* AppCategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCategoryCollectionView.swift; sourceTree = "<group>"; };
-		B807B5472019C44F009F89F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B807B54A2019C44F009F89F4 /* AppStoreDuplicate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppStoreDuplicate.xcdatamodel; sourceTree = "<group>"; };
 		B807B54C2019C44F009F89F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B807B54F2019C44F009F89F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +58,13 @@
 		B807B5672019C44F009F89F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B807B5742019C977009F89F4 /* CategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellView.swift; sourceTree = "<group>"; };
 		B807B5762019E0E2009F89F4 /* AppCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCategoryViewModel.swift; sourceTree = "<group>"; };
+		B85582F1201F324E00FE0C51 /* HeaderBannerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBannerCellView.swift; sourceTree = "<group>"; };
+		B85582F4201F3FDD00FE0C51 /* FooterBannerCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBannerCellView.swift; sourceTree = "<group>"; };
+		B85582F7201F4B7500FE0C51 /* AppDetailsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsCollectionView.swift; sourceTree = "<group>"; };
+		B85582FD201F4E2900FE0C51 /* UpdateCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCollectionView.swift; sourceTree = "<group>"; };
+		B85582FF201F4E5600FE0C51 /* SearchCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionView.swift; sourceTree = "<group>"; };
+		B8558301201F4E6C00FE0C51 /* ExploreCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionView.swift; sourceTree = "<group>"; };
+		B8558303201F4E8500FE0C51 /* TopChartsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopChartsCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,13 +116,14 @@
 			isa = PBXGroup;
 			children = (
 				B807B5422019C44F009F89F4 /* AppDelegate.swift */,
-				B807B5442019C44F009F89F4 /* AppCategoryCollectionView.swift */,
-				B807B5742019C977009F89F4 /* CategoryCellView.swift */,
-				B807B5462019C44F009F89F4 /* Main.storyboard */,
+				B85582F3201F384500FE0C51 /* AppCategoryView */,
+				B85582FC201F4DA800FE0C51 /* Updates */,
+				B85582FB201F4DA000FE0C51 /* Search */,
+				B85582FA201F4D9400FE0C51 /* Explore */,
+				B85582F9201F4D8200FE0C51 /* Top Charts */,
 				B807B54E2019C44F009F89F4 /* LaunchScreen.storyboard */,
 				B807B5512019C44F009F89F4 /* Info.plist */,
 				B807B5732019C4F5009F89F4 /* SupportingFiles */,
-				B807B5762019E0E2009F89F4 /* AppCategoryViewModel.swift */,
 			);
 			path = AppStoreDuplicate;
 			sourceTree = "<group>";
@@ -140,6 +153,59 @@
 				B807B5492019C44F009F89F4 /* AppStoreDuplicate.xcdatamodeld */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		B85582F3201F384500FE0C51 /* AppCategoryView */ = {
+			isa = PBXGroup;
+			children = (
+				B85582F6201F4B3300FE0C51 /* AppDetailsView */,
+				B807B5442019C44F009F89F4 /* AppCategoryCollectionView.swift */,
+				B807B5762019E0E2009F89F4 /* AppCategoryViewModel.swift */,
+				B85582F1201F324E00FE0C51 /* HeaderBannerCellView.swift */,
+				B807B5742019C977009F89F4 /* CategoryCellView.swift */,
+				B85582F4201F3FDD00FE0C51 /* FooterBannerCellView.swift */,
+			);
+			path = AppCategoryView;
+			sourceTree = "<group>";
+		};
+		B85582F6201F4B3300FE0C51 /* AppDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				B85582F7201F4B7500FE0C51 /* AppDetailsCollectionView.swift */,
+			);
+			path = AppDetailsView;
+			sourceTree = "<group>";
+		};
+		B85582F9201F4D8200FE0C51 /* Top Charts */ = {
+			isa = PBXGroup;
+			children = (
+				B8558303201F4E8500FE0C51 /* TopChartsCollectionView.swift */,
+			);
+			path = "Top Charts";
+			sourceTree = "<group>";
+		};
+		B85582FA201F4D9400FE0C51 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				B8558301201F4E6C00FE0C51 /* ExploreCollectionView.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		B85582FB201F4DA000FE0C51 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B85582FF201F4E5600FE0C51 /* SearchCollectionView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B85582FC201F4DA800FE0C51 /* Updates */ = {
+			isa = PBXGroup;
+			children = (
+				B85582FD201F4E2900FE0C51 /* UpdateCollectionView.swift */,
+			);
+			path = Updates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +317,6 @@
 			files = (
 				B807B5502019C44F009F89F4 /* LaunchScreen.storyboard in Resources */,
 				B807B54D2019C44F009F89F4 /* Assets.xcassets in Resources */,
-				B807B5482019C44F009F89F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,10 +342,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B807B5452019C44F009F89F4 /* AppCategoryCollectionView.swift in Sources */,
+				B85582F2201F324E00FE0C51 /* HeaderBannerCellView.swift in Sources */,
+				B8558300201F4E5600FE0C51 /* SearchCollectionView.swift in Sources */,
+				B8558304201F4E8500FE0C51 /* TopChartsCollectionView.swift in Sources */,
+				B85582FE201F4E2900FE0C51 /* UpdateCollectionView.swift in Sources */,
 				B807B54B2019C44F009F89F4 /* AppStoreDuplicate.xcdatamodeld in Sources */,
 				B807B5752019C977009F89F4 /* CategoryCellView.swift in Sources */,
+				B8558302201F4E6C00FE0C51 /* ExploreCollectionView.swift in Sources */,
+				B85582F5201F3FDD00FE0C51 /* FooterBannerCellView.swift in Sources */,
 				B807B5432019C44F009F89F4 /* AppDelegate.swift in Sources */,
 				B807B5772019E0E2009F89F4 /* AppCategoryViewModel.swift in Sources */,
+				B85582F8201F4B7500FE0C51 /* AppDetailsCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,14 +388,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B807B5462019C44F009F89F4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B807B5472019C44F009F89F4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B807B54E2019C44F009F89F4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

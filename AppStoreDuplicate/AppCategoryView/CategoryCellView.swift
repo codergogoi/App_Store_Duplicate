@@ -8,9 +8,17 @@
 
 import UIKit
 
+protocol CategoryDelegate {
+    
+    func loadControllerWithData(title: String?)
+    
+}
+
 class CategoryCellView: UICollectionViewCell {
     
     private let cellIdentifier = "cell"
+    
+    var cellDelegate : CategoryDelegate?
     
     var appCategoryDataModel : AppcategoryStruct? {
         
@@ -19,9 +27,7 @@ class CategoryCellView: UICollectionViewCell {
                 categoryTitle.text = categoryName
             }
         }
-        
     }
-    
     
     let categoryTitle: UILabel = {
        
@@ -59,7 +65,6 @@ class CategoryCellView: UICollectionViewCell {
     func setupView(){
         
         self.addSubview(categoryTitle)
- 
         self.appCollectionView.delegate = self
         self.appCollectionView.dataSource = self
         self.appCollectionView.register(AppCellView.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -74,6 +79,8 @@ class CategoryCellView: UICollectionViewCell {
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(20)]-14-[v1]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": categoryTitle,"v1": appCollectionView]))
  
     }
+    
+    
  
 }
 
@@ -92,6 +99,12 @@ extension CategoryCellView: UICollectionViewDelegate, UICollectionViewDataSource
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        cellDelegate?.loadControllerWithData(title: self.categoryTitle.text)
+        
+    }
+    
 }
 
 extension CategoryCellView : UICollectionViewDelegateFlowLayout{
@@ -104,34 +117,58 @@ extension CategoryCellView : UICollectionViewDelegateFlowLayout{
     
 }
 
-
 class AppCellView: UICollectionViewCell{
     
     let appIconImg : UIImageView = {
        
         let img = UIImageView()
-        img.contentMode = .scaleAspectFit
-        img.image = #imageLiteral(resourceName: "clash")
-        img.layer.cornerRadius = 10
-
+        img.contentMode = .scaleToFill
+        //img.image = #imageLiteral(resourceName: "clash")
+        img.translatesAutoresizingMaskIntoConstraints = false
+ 
         return img
+    }()
+    
+    let lblAppInfo : UILabel = {
+       
+        let lbl = UILabel()
+        lbl.numberOfLines = 0
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        
+        let attrText = NSMutableAttributedString()
+        
+        let appName = NSAttributedString(string: "Clash Of Clans\n", attributes: [NSAttributedStringKey.foregroundColor : UIColor.black, NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 14)])
+        attrText.append(appName)
+
+        let appInfo = NSAttributedString(string:"Games", attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)])
+        
+        attrText.append(appInfo)
+        
+        lbl.attributedText = attrText
+        
+        return lbl
+        
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
-        setupView()
+         setupView()
     }
     
     
     func setupView(){
         
         self.addSubview(appIconImg)
-        self.appIconImg.translatesAutoresizingMaskIntoConstraints = false
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appIconImg]))
-        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[v0(120)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appIconImg]))
+        appIconImg.layer.cornerRadius = 30
+        appIconImg.layer.masksToBounds = true
+        self.addSubview(lblAppInfo)
         
-    }
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0(120)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appIconImg]))
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[v0(120)]-[v1]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appIconImg, "v1": lblAppInfo]))
+        
+        self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v1]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v1": lblAppInfo]))
+        
+     }
     
     
     required init?(coder aDecoder: NSCoder) {
