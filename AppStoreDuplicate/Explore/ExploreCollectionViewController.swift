@@ -1,5 +1,5 @@
 //
-//  SearchCollectionView.swift
+//  ExploreCollectionView.swift
 //  AppStoreDuplicate
 //
 //  Created by MAC01 on 29/01/18.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-class SearchCollectionView: UIViewController {
+class ExploreCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView?.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        
         // Do any additional setup after loading the view.
     }
 

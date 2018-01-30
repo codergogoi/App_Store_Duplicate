@@ -8,17 +8,11 @@
 
 import UIKit
 
-protocol CategoryDelegate {
-    
-    func loadControllerWithData(title: String?)
-    
-}
-
-class CategoryCellView: UICollectionViewCell {
+class CategoryCell: UICollectionViewCell {
     
     private let cellIdentifier = "cell"
     
-    var cellDelegate : CategoryDelegate?
+    var categoryCVC : CategoryCollectionViewController?
     
     var appCategoryDataModel : AppcategoryStruct? {
         
@@ -84,7 +78,7 @@ class CategoryCellView: UICollectionViewCell {
  
 }
 
-extension CategoryCellView: UICollectionViewDelegate, UICollectionViewDataSource{
+extension CategoryCell: UICollectionViewDelegate, UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -101,13 +95,13 @@ extension CategoryCellView: UICollectionViewDelegate, UICollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        cellDelegate?.loadControllerWithData(title: self.categoryTitle.text)
+        categoryCVC?.loadAppDetailsView()
         
     }
     
 }
 
-extension CategoryCellView : UICollectionViewDelegateFlowLayout{
+extension CategoryCell : UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         

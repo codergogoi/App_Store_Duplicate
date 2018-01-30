@@ -9,24 +9,24 @@
 import UIKit
 
 
-class AppCategoryCollectionView: UICollectionViewController {
+class CategoryCollectionViewController: UICollectionViewController {
 
     private let identifier = "categoryCell"
     private let headerIdentifire = "headerBanner"
     private let footerIdentifier = "footerBanner"
     
-    var model: AppCategoryViewModel!
+    var model: CategoryCollectionViewModel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.model = AppCategoryViewModel()
+        self.model = CategoryCollectionViewModel()
         
         collectionView?.backgroundColor = UIColor(white:0.95, alpha:1)
-        collectionView?.register(CategoryCellView.self, forCellWithReuseIdentifier: identifier)
-        collectionView?.register(HeaderBannerCellView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader , withReuseIdentifier: headerIdentifire)
-        collectionView?.register(FooterBannerCellView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter , withReuseIdentifier: footerIdentifier)
+        collectionView?.register(CategoryCell.self, forCellWithReuseIdentifier: identifier)
+        collectionView?.register(HeaderBannerCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader , withReuseIdentifier: headerIdentifire)
+        collectionView?.register(FooterBannerCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter , withReuseIdentifier: footerIdentifier)
         collectionView?.alwaysBounceVertical = true
         
     }
@@ -48,11 +48,10 @@ class AppCategoryCollectionView: UICollectionViewController {
         return 2
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier , for: indexPath) as! CategoryCellView
-        cell.cellDelegate = self as? CategoryDelegate
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier , for: indexPath) as! CategoryCell
+        cell.categoryCVC = self
         let dataModel = self.model.appCategoryArray[indexPath.row]
         cell.appCategoryDataModel = dataModel
  
@@ -63,52 +62,38 @@ class AppCategoryCollectionView: UICollectionViewController {
         
         if kind == UICollectionElementKindSectionHeader{
             
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifire, for: indexPath) as! HeaderBannerCellView
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifire, for: indexPath) as! HeaderBannerCell
             
             return header
         }else if kind == UICollectionElementKindSectionFooter{
             
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerIdentifier, for: indexPath) as! FooterBannerCellView
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerIdentifier, for: indexPath) as! FooterBannerCell
             
             return footer
         }
         
         return UICollectionViewCell()
-        
+
     }
     
-     
+    
+    func loadAppDetailsView(){
+        
+        let layout = UICollectionViewFlowLayout()
+        let detailsView = AppDetailsCollectionView(collectionViewLayout: layout)
+        
+        self.navigationController?.pushViewController(detailsView, animated: true)
+    }
+    
 }
 
 //Use delegate for make the code clean
 
-extension AppCategoryCollectionView : UICollectionViewDelegateFlowLayout{
+extension CategoryCollectionViewController : UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: (self.collectionView?.frame.size.width)!,  height:200)
-    }
-}
-
-extension AppDetailsCollectionView : CategoryDelegate{
-    
-    func loadControllerWithData(title: String?) {
-        
-        DispatchQueue.main.async {
-            
-            let layout = UICollectionViewFlowLayout()
-            
-            let detailsView = AppDetailsCollectionView(collectionViewLayout: layout)
-            
-            if let categoryTitle = title{
-                detailsView.navigationItem.title = categoryTitle
-            }
-         
-            self.navigationController?.pushViewController(detailsView, animated: true)
-            
-        }
-       
-        
     }
 }
 

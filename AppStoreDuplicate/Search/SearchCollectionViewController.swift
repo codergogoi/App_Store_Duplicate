@@ -1,5 +1,5 @@
 //
-//  UpdateCollectionView.swift
+//  SearchCollectionView.swift
 //  AppStoreDuplicate
 //
 //  Created by MAC01 on 29/01/18.
@@ -8,11 +8,12 @@
 
 import UIKit
 
-class UpdateCollectionView: UIViewController {
+class SearchCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView?.backgroundColor = UIColor(white: 0.8, alpha:1)
         // Do any additional setup after loading the view.
     }
 

@@ -20,14 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        let layout = UICollectionViewFlowLayout()
-        
-        let rootViewController = AppCategoryCollectionView(collectionViewLayout: layout)
-        
-        let navigationController = UINavigationController(rootViewController: rootViewController)
-        
-        window?.rootViewController = navigationController
- 
+        let tabViewController = AppStoreTabBarController()
+      
+        window?.rootViewController = tabViewController
         
         return true
     }

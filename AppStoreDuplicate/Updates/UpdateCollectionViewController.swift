@@ -1,5 +1,5 @@
 //
-//  TopChartsCollectionView.swift
+//  UpdateCollectionView.swift
 //  AppStoreDuplicate
 //
 //  Created by MAC01 on 29/01/18.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TopChartsCollectionView: UIViewController {
+class UpdateCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        collectionView?.backgroundColor = UIColor(white: 0.7, alpha: 1)
         // Do any additional setup after loading the view.
     }
 

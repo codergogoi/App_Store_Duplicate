@@ -1,5 +1,5 @@
 //
-//  HeaderBannerCellView.swift
+//  FooterBannerCellView.swift
 //  AppStoreDuplicate
 //
 //  Created by MAC01 on 29/01/18.
@@ -8,67 +8,61 @@
 
 import UIKit
 
-class HeaderBannerCellView: CategoryCellView {
+class FooterBannerCell: CategoryCell {
     
-    private let bannerIdentifier : String = "bannerApp"
+    private let footerIdentifier = "footerView"
     
     override func setupView() {
-        
-        backgroundColor = UIColor.gray
-        addSubview(appCollectionView)
-        appCollectionView.backgroundColor = UIColor.cyan
+       
+        self.addSubview(appCollectionView)
+        appCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        appCollectionView.backgroundColor = UIColor.lightGray
         appCollectionView.delegate = self
         appCollectionView.dataSource = self
-        appCollectionView.register(BannerCellView.self, forCellWithReuseIdentifier: bannerIdentifier)
-        appCollectionView.alwaysBounceHorizontal = true
         appCollectionView.showsHorizontalScrollIndicator = false
+        appCollectionView.alwaysBounceHorizontal = true
+        
+        appCollectionView.register(FooterCellView.self, forCellWithReuseIdentifier: footerIdentifier)
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appCollectionView]))
+        
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appCollectionView]))
+        
         
     }
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return 10
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let bannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: bannerIdentifier, for: indexPath) as! BannerCellView
+        let footerBannerCell = collectionView.dequeueReusableCell(withReuseIdentifier: footerIdentifier, for: indexPath) as! FooterCellView
         
-        return bannerCell
+        return footerBannerCell
         
     }
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.size.width, height: 150)
-        
+        return CGSize(width: collectionView.frame.size.width, height: 120)
     }
-     
     
+
 }
 
 
-class BannerCellView: AppCellView{
+class FooterCellView: AppCellView {
     
- 
     override func setupView() {
-        addSubview(appIconImg)
-        appIconImg.layer.cornerRadius = 0
-        appIconImg.backgroundColor = UIColor.red
-        
+        self.addSubview(appIconImg)
+       // appIconImg.backgroundColor = UIColor.cyan
+        appIconImg.translatesAutoresizingMaskIntoConstraints = false
         
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appIconImg]))
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[v0]-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": appIconImg]))
-
-        
-        
         
     }
     
-    
 }
-

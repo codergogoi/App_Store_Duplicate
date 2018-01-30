@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppCategoryViewModel: NSObject {
+class CategoryCollectionViewModel: NSObject {
     
     var appCategoryArray : [AppcategoryStruct] = []
     
