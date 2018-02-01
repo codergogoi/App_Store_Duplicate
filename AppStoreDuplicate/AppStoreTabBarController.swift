@@ -20,7 +20,7 @@ class AppStoreTabBarController: UITabBarController {
         let searchCVC = SearchCollectionViewController(collectionViewLayout: layout)
         let updateCVC = UpdateCollectionViewController(collectionViewLayout: layout)
         
-       viewControllers = [getGenericNavController(vc: categoryCVC, itemTitle: "Featured", itemImg: #imageLiteral(resourceName: "generic") , title: "Featured Apps"), getGenericNavController(vc: topChartCVC, itemTitle: "Top Charts", itemImg: #imageLiteral(resourceName: "generic") , title: "Top Charts"),getGenericNavController(vc: exploreCVC, itemTitle: "Explore", itemImg: #imageLiteral(resourceName: "generic") , title: "Explore"),getGenericNavController(vc: searchCVC, itemTitle: "Search", itemImg: #imageLiteral(resourceName: "generic") , title: "Search App"),getGenericNavController(vc: updateCVC, itemTitle: "Update", itemImg: #imageLiteral(resourceName: "generic") , title: "Updates")]
+       viewControllers = [getGenericNavController(vc: categoryCVC, itemTitle: "Featured", itemImg: #imageLiteral(resourceName: "feature_icon"), title: "Featured Apps"), getGenericNavController(vc: topChartCVC, itemTitle: "Top Charts", itemImg: #imageLiteral(resourceName: "top_charts") , title: "Top Charts"),getGenericNavController(vc: exploreCVC, itemTitle: "Explore", itemImg: #imageLiteral(resourceName: "explore_icon") , title: "Explore"),getGenericNavController(vc: searchCVC, itemTitle: "Search", itemImg: #imageLiteral(resourceName: "search_icon") , title: "Search App"),getGenericNavController(vc: updateCVC, itemTitle: "Update", itemImg: #imageLiteral(resourceName: "updates_icon") , title: "Updates")]
         
     }
     
