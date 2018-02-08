@@ -21,7 +21,6 @@ class CategoryCollectionViewModel: NSObject {
         
         super.init()
         //TODO : - replace with API data
-        
  
         setupDate()
     }
