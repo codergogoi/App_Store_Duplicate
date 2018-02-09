@@ -8,7 +8,9 @@
 
 import UIKit
 
-private let cellIdentifier = "Cell"
+private let cellIdentifier = "appDetailsCell"
+private let headerIdentifier = "appHeaderCell"
+private let descIdentifier = "appDesc"
 
 class AppDetailsCollectionView: UICollectionViewController {
 
@@ -16,8 +18,50 @@ class AppDetailsCollectionView: UICollectionViewController {
         super.viewDidLoad()
         
         collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
-      
+        collectionView?.register(AppDetailsCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView?.register(DescriptionCell.self, forCellWithReuseIdentifier: descIdentifier)
+        collectionView?.register(AppDetailsHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader , withReuseIdentifier: headerIdentifier)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return 2
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        
+        if indexPath.row == 0{
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! AppDetailsCell
+            return cell
+            
+        }else if indexPath.row == 1{
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: descIdentifier, for: indexPath) as! DescriptionCell
+            return cell
+            
+        }
+        
+        return UICollectionViewCell()
+        
+     }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        if kind == UICollectionElementKindSectionHeader{
+            
+            if let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as? AppDetailsHeaderCell{
+                
+                return header
+            }
+            
+        }
+        
+        return UICollectionViewCell()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -26,51 +70,50 @@ class AppDetailsCollectionView: UICollectionViewController {
   
 }
 
-
-class DetailsCell : UICollectionViewCell{
+extension AppDetailsCollectionView : UICollectionViewDelegateFlowLayout {
     
-    var appIcon : UIImageView = {
-       
-        let imgView = UIImageView()
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.contentMode = .scaleAspectFit
-        imgView.clipsToBounds = true
-        imgView.layer.masksToBounds = true
-        imgView.layer.cornerRadius = 20
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        return imgView
+        return CGSize(width: self.view.frame.size.width, height: 200)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: self.view.frame.size.width, height: 200)
+    }
+    
+}
+
+
+
+class DescriptionCell: BaseCell {
+    
+    let descriptionText: UITextView = {
+        
+        let desText = UITextView()
+        desText.translatesAutoresizingMaskIntoConstraints = false
+        desText.textColor = UIColor.darkGray
+        desText.isEditable = false
+        desText.showsVerticalScrollIndicator = false
+        desText.showsHorizontalScrollIndicator = false
+        desText.font = UIFont.systemFont(ofSize: 13)
+        desText.text = "App descriptions and features details."
+        return desText
     }()
     
-    
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupSubViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override func setupSubViews() {
+        super.setupSubViews()
+        addSubview(descriptionText)
+        
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": descriptionText]))
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": descriptionText]))
         
     }
-    
-    
-    func setupSubViews(){
-        
-        backgroundColor = UIColor.gray
-        
-    }
-    
 }
 
-class DetailsHeaderCell : DetailsCell{
-    
-    override func setupSubViews() {
-         super.setupSubViews()
-        
-        
-    }
-    
-}
+
+ 
+
 
 
 

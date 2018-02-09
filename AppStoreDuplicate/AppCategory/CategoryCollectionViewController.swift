@@ -32,6 +32,10 @@ class CategoryCollectionViewController: UICollectionViewController {
         
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        collectionView?.collectionViewLayout.invalidateLayout()
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
  
