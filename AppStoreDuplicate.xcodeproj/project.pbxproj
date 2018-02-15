@@ -26,6 +26,7 @@
 		B8558300201F4E5600FE0C51 /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85582FF201F4E5600FE0C51 /* SearchCollectionViewController.swift */; };
 		B8558302201F4E6C00FE0C51 /* ExploreCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8558301201F4E6C00FE0C51 /* ExploreCollectionViewController.swift */; };
 		B8558304201F4E8500FE0C51 /* TopChartsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8558303201F4E8500FE0C51 /* TopChartsCollectionViewController.swift */; };
+		B8C6B41E20359BEB00653341 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6B41D20359BEB00653341 /* InformationCell.swift */; };
 		B8D16301202D697600B1F670 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D16300202D697600B1F670 /* BaseCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		B85582FF201F4E5600FE0C51 /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		B8558301201F4E6C00FE0C51 /* ExploreCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreCollectionViewController.swift; sourceTree = "<group>"; };
 		B8558303201F4E8500FE0C51 /* TopChartsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopChartsCollectionViewController.swift; sourceTree = "<group>"; };
+		B8C6B41D20359BEB00653341 /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
 		B8D16300202D697600B1F670 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 				B8071727202C800E004D3017 /* AppDetailsCell.swift */,
 				B8071729202C818B004D3017 /* AppDetailsHeaderCell.swift */,
 				B8D16300202D697600B1F670 /* BaseCell.swift */,
+				B8C6B41D20359BEB00653341 /* InformationCell.swift */,
 			);
 			path = AppDetailsView;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				B807B5452019C44F009F89F4 /* CategoryCollectionViewController.swift in Sources */,
 				B85582F2201F324E00FE0C51 /* HeaderBannerCell.swift in Sources */,
 				B807172A202C818B004D3017 /* AppDetailsHeaderCell.swift in Sources */,
+				B8C6B41E20359BEB00653341 /* InformationCell.swift in Sources */,
 				B8558300201F4E5600FE0C51 /* SearchCollectionViewController.swift in Sources */,
 				B8D16301202D697600B1F670 /* BaseCell.swift in Sources */,
 				B8558304201F4E8500FE0C51 /* TopChartsCollectionViewController.swift in Sources */,

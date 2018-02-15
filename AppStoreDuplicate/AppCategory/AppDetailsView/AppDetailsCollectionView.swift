@@ -11,6 +11,7 @@ import UIKit
 private let cellIdentifier = "appDetailsCell"
 private let headerIdentifier = "appHeaderCell"
 private let descIdentifier = "appDesc"
+private let infoIdentifier = "infoDesc"
 
 class AppDetailsCollectionView: UICollectionViewController {
 
@@ -20,12 +21,13 @@ class AppDetailsCollectionView: UICollectionViewController {
         collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
         collectionView?.register(AppDetailsCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView?.register(DescriptionCell.self, forCellWithReuseIdentifier: descIdentifier)
+        collectionView?.register(InformationCell.self, forCellWithReuseIdentifier: infoIdentifier)
         collectionView?.register(AppDetailsHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader , withReuseIdentifier: headerIdentifier)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 2
+        return 3
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -41,10 +43,13 @@ class AppDetailsCollectionView: UICollectionViewController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: descIdentifier, for: indexPath) as! DescriptionCell
             return cell
             
+        }else{
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: infoIdentifier, for: indexPath) as! InformationCell
+            return cell
+            
         }
-        
-        return UICollectionViewCell()
-        
+ 
      }
     
     
@@ -110,6 +115,7 @@ class DescriptionCell: BaseCell {
         
     }
 }
+
 
 
  
